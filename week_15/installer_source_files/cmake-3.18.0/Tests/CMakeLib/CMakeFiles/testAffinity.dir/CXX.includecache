@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Tests/CMakeLib/testAffinity.cxx
+cstddef
+-
+iostream
+-
+set
+-
+cmAffinity.h
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Tests/CMakeLib/cmAffinity.h
+
+Source/cmAffinity.h
+cmConfigure.h
+Source/cmConfigure.h
+cstddef
+-
+set
+-
+
+Source/cmConfigure.h
+cmsys/Configure.hxx
+Source/cmsys/Configure.hxx
+
+Source/cmsys/Configure.h
+
+Source/cmsys/Configure.hxx
+cmsys/Configure.h
+-
+

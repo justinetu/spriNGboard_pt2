@@ -1,0 +1,3382 @@
+Determining if the environ exist failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_eb60b/fast && gmake  -f CMakeFiles/cmTC_eb60b.dir/build.make CMakeFiles/cmTC_eb60b.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_eb60b.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -std=gnu11 -o CMakeFiles/cmTC_eb60b.dir/CheckSymbolExists.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: ‘environ’ undeclared (first use in this function)
+   return ((int*)(&environ))[argc];
+                   ^~~~~~~
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+gmake[1]: *** [CMakeFiles/cmTC_eb60b.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_eb60b/fast] Error 2
+
+
+File /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdlib.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef environ
+  return ((int*)(&environ))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_9cd9f/fast && gmake  -f CMakeFiles/cmTC_9cd9f.dir/build.make CMakeFiles/cmTC_9cd9f.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9cd9f.dir/src.c.o
+/usr/bin/gcc   -DCMAKE_HAVE_LIBC_PTHREAD -std=gnu11 -o CMakeFiles/cmTC_9cd9f.dir/src.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_9cd9f
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_9cd9f.dir/link.txt --verbose=1
+/usr/bin/gcc  -DCMAKE_HAVE_LIBC_PTHREAD CMakeFiles/cmTC_9cd9f.dir/src.c.o -o cmTC_9cd9f 
+CMakeFiles/cmTC_9cd9f.dir/src.c.o: In function `main':
+src.c:(.text+0x2d): undefined reference to `pthread_create'
+src.c:(.text+0x39): undefined reference to `pthread_detach'
+src.c:(.text+0x45): undefined reference to `pthread_cancel'
+src.c:(.text+0x56): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_9cd9f] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_9cd9f/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_c66d7/fast && gmake  -f CMakeFiles/cmTC_c66d7.dir/build.make CMakeFiles/cmTC_c66d7.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c66d7.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -DCHECK_FUNCTION_EXISTS=pthread_create -std=gnu11 -o CMakeFiles/cmTC_c66d7.dir/CheckFunctionExists.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Modules/CheckFunctionExists.c
+Linking C executable cmTC_c66d7
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_c66d7.dir/link.txt --verbose=1
+/usr/bin/gcc  -DCHECK_FUNCTION_EXISTS=pthread_create CMakeFiles/cmTC_c66d7.dir/CheckFunctionExists.c.o -o cmTC_c66d7  -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_c66d7] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_c66d7/fast] Error 2
+
+
+
+Checking whether CXX compiler has environ in stdlib.h failed to compile with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Source/kwsys/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_f937d/fast && gmake  -f CMakeFiles/cmTC_f937d.dir/build.make CMakeFiles/cmTC_f937d.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Source/kwsys/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_f937d.dir/kwsysPlatformTestsCXX.cxx.o
+/usr/bin/g++ -DTEST_KWSYS_CXX_HAS_ENVIRON_IN_STDLIB_H  -std=gnu++1z -o CMakeFiles/cmTC_f937d.dir/kwsysPlatformTestsCXX.cxx.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Source/kwsys/kwsysPlatformTestsCXX.cxx
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Source/kwsys/kwsysPlatformTestsCXX.cxx: In function ‘int main()’:
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Source/kwsys/kwsysPlatformTestsCXX.cxx:53:13: error: ‘environ’ was not declared in this scope
+   char* e = environ[0];
+             ^~~~~~~
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Source/kwsys/kwsysPlatformTestsCXX.cxx:53:13: note: suggested alternative: ‘union’
+   char* e = environ[0];
+             ^~~~~~~
+             union
+gmake[1]: *** [CMakeFiles/cmTC_f937d.dir/kwsysPlatformTestsCXX.cxx.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Source/kwsys/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_f937d/fast] Error 2
+
+
+
+Checking whether CXX compiler struct stat has st_mtimespec member failed to compile with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Source/kwsys/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_d3300/fast && gmake  -f CMakeFiles/cmTC_d3300.dir/build.make CMakeFiles/cmTC_d3300.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Source/kwsys/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_d3300.dir/kwsysPlatformTestsCXX.cxx.o
+/usr/bin/g++ -DTEST_KWSYS_CXX_STAT_HAS_ST_MTIMESPEC  -std=gnu++1z -o CMakeFiles/cmTC_d3300.dir/kwsysPlatformTestsCXX.cxx.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Source/kwsys/kwsysPlatformTestsCXX.cxx
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Source/kwsys/kwsysPlatformTestsCXX.cxx: In function ‘int main()’:
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Source/kwsys/kwsysPlatformTestsCXX.cxx:26:15: error: ‘struct stat’ has no member named ‘st_mtimespec’; did you mean ‘st_mtim’?
+   (void)stat1.st_mtimespec.tv_sec;
+               ^~~~~~~~~~~~
+               st_mtim
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Source/kwsys/kwsysPlatformTestsCXX.cxx:27:15: error: ‘struct stat’ has no member named ‘st_mtimespec’; did you mean ‘st_mtim’?
+   (void)stat1.st_mtimespec.tv_nsec;
+               ^~~~~~~~~~~~
+               st_mtim
+gmake[1]: *** [CMakeFiles/cmTC_d3300.dir/kwsysPlatformTestsCXX.cxx.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Source/kwsys/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_d3300/fast] Error 2
+
+
+
+Determining if the function connect exists in the socket;dl failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_7da6a/fast && gmake  -f CMakeFiles/cmTC_7da6a.dir/build.make CMakeFiles/cmTC_7da6a.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7da6a.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=connect -std=gnu11 -o CMakeFiles/cmTC_7da6a.dir/CheckFunctionExists.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Modules/CheckFunctionExists.c
+Linking C executable cmTC_7da6a
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_7da6a.dir/link.txt --verbose=1
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=connect CMakeFiles/cmTC_7da6a.dir/CheckFunctionExists.c.o -o cmTC_7da6a  -lsocket -ldl 
+/usr/bin/ld: cannot find -lsocket
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_7da6a] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_7da6a/fast] Error 2
+
+
+
+Determining if the function recv exists in the network;dl failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_1f0e8/fast && gmake  -f CMakeFiles/cmTC_1f0e8.dir/build.make CMakeFiles/cmTC_1f0e8.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1f0e8.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=recv -std=gnu11 -o CMakeFiles/cmTC_1f0e8.dir/CheckFunctionExists.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Modules/CheckFunctionExists.c
+Linking C executable cmTC_1f0e8
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_1f0e8.dir/link.txt --verbose=1
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=recv CMakeFiles/cmTC_1f0e8.dir/CheckFunctionExists.c.o -o cmTC_1f0e8  -lnetwork -ldl 
+/usr/bin/ld: cannot find -lnetwork
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_1f0e8] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_1f0e8/fast] Error 2
+
+
+
+Determining if the function idn2_lookup_ul exists in the idn2;dl;cmnghttp2 failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_6dedf/fast && gmake  -f CMakeFiles/cmTC_6dedf.dir/build.make CMakeFiles/cmTC_6dedf.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_6dedf.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=idn2_lookup_ul -std=gnu11 -o CMakeFiles/cmTC_6dedf.dir/CheckFunctionExists.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Modules/CheckFunctionExists.c
+Linking C executable cmTC_6dedf
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_6dedf.dir/link.txt --verbose=1
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=idn2_lookup_ul CMakeFiles/cmTC_6dedf.dir/CheckFunctionExists.c.o -o cmTC_6dedf  -lidn2 -ldl -lcmnghttp2 
+/usr/bin/ld: cannot find -lidn2
+/usr/bin/ld: cannot find -lcmnghttp2
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_6dedf] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_6dedf/fast] Error 2
+
+
+
+Determining if the function dlopen exists in the dl;cmnghttp2 failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_90f58/fast && gmake  -f CMakeFiles/cmTC_90f58.dir/build.make CMakeFiles/cmTC_90f58.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_90f58.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=dlopen -std=gnu11 -o CMakeFiles/cmTC_90f58.dir/CheckFunctionExists.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Modules/CheckFunctionExists.c
+Linking C executable cmTC_90f58
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_90f58.dir/link.txt --verbose=1
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=dlopen CMakeFiles/cmTC_90f58.dir/CheckFunctionExists.c.o -o cmTC_90f58  -ldl -lcmnghttp2 
+/usr/bin/ld: cannot find -lcmnghttp2
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_90f58] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_90f58/fast] Error 2
+
+
+
+Determining if files stdio.h;inttypes.h;sys/filio.h exist failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_9dad9/fast && gmake  -f CMakeFiles/cmTC_9dad9.dir/build.make CMakeFiles/cmTC_9dad9.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9dad9.dir/HAVE_SYS_FILIO_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_9dad9.dir/HAVE_SYS_FILIO_H.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_SYS_FILIO_H.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_SYS_FILIO_H.c:4:10: fatal error: sys/filio.h: No such file or directory
+ #include <sys/filio.h>
+          ^~~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_9dad9.dir/HAVE_SYS_FILIO_H.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_9dad9/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/filio.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/sockio.h exist failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_f4524/fast && gmake  -f CMakeFiles/cmTC_f4524.dir/build.make CMakeFiles/cmTC_f4524.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f4524.dir/HAVE_SYS_SOCKIO_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_f4524.dir/HAVE_SYS_SOCKIO_H.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_SYS_SOCKIO_H.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_SYS_SOCKIO_H.c:10:10: fatal error: sys/sockio.h: No such file or directory
+ #include <sys/sockio.h>
+          ^~~~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_f4524.dir/HAVE_SYS_SOCKIO_H.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_f4524/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/sockio.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/utime.h exist failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_72f83/fast && gmake  -f CMakeFiles/cmTC_72f83.dir/build.make CMakeFiles/cmTC_72f83.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_72f83.dir/HAVE_SYS_UTIME_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_72f83.dir/HAVE_SYS_UTIME_H.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_SYS_UTIME_H.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_SYS_UTIME_H.c:15:10: fatal error: sys/utime.h: No such file or directory
+ #include <sys/utime.h>
+          ^~~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_72f83.dir/HAVE_SYS_UTIME_H.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_72f83/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/utime.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;crypto.h exist failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_b6be8/fast && gmake  -f CMakeFiles/cmTC_b6be8.dir/build.make CMakeFiles/cmTC_b6be8.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b6be8.dir/HAVE_CRYPTO_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_b6be8.dir/HAVE_CRYPTO_H.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_CRYPTO_H.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_CRYPTO_H.c:20:10: fatal error: crypto.h: No such file or directory
+ #include <crypto.h>
+          ^~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_b6be8.dir/HAVE_CRYPTO_H.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_b6be8/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <crypto.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;err.h;errno.h;fcntl.h;idn2.h exist failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_fef7b/fast && gmake  -f CMakeFiles/cmTC_fef7b.dir/build.make CMakeFiles/cmTC_fef7b.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_fef7b.dir/HAVE_IDN2_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_fef7b.dir/HAVE_IDN2_H.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_IDN2_H.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_IDN2_H.c:23:10: fatal error: idn2.h: No such file or directory
+ #include <idn2.h>
+          ^~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_fef7b.dir/HAVE_IDN2_H.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_fef7b/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <idn2.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;err.h;errno.h;fcntl.h;ifaddrs.h;io.h exist failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_72c66/fast && gmake  -f CMakeFiles/cmTC_72c66.dir/build.make CMakeFiles/cmTC_72c66.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_72c66.dir/HAVE_IO_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_72c66.dir/HAVE_IO_H.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_IO_H.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_IO_H.c:24:10: fatal error: io.h: No such file or directory
+ #include <io.h>
+          ^~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_72c66.dir/HAVE_IO_H.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_72c66/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <io.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;err.h;errno.h;fcntl.h;ifaddrs.h;krb.h exist failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_13a65/fast && gmake  -f CMakeFiles/cmTC_13a65.dir/build.make CMakeFiles/cmTC_13a65.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_13a65.dir/HAVE_KRB_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_13a65.dir/HAVE_KRB_H.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_KRB_H.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_KRB_H.c:24:10: fatal error: krb.h: No such file or directory
+ #include <krb.h>
+          ^~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_13a65.dir/HAVE_KRB_H.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_13a65/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <krb.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;err.h;errno.h;fcntl.h;ifaddrs.h;libgen.h;locale.h;net/if.h;netdb.h;netinet/in.h;netinet/tcp.h;pem.h exist failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_fdf7f/fast && gmake  -f CMakeFiles/cmTC_fdf7f.dir/build.make CMakeFiles/cmTC_fdf7f.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_fdf7f.dir/HAVE_PEM_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_fdf7f.dir/HAVE_PEM_H.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_PEM_H.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_PEM_H.c:30:10: fatal error: pem.h: No such file or directory
+ #include <pem.h>
+          ^~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_fdf7f.dir/HAVE_PEM_H.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_fdf7f/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <pem.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;err.h;errno.h;fcntl.h;ifaddrs.h;libgen.h;locale.h;net/if.h;netdb.h;netinet/in.h;netinet/tcp.h;poll.h;pwd.h;rsa.h exist failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_9cde2/fast && gmake  -f CMakeFiles/cmTC_9cde2.dir/build.make CMakeFiles/cmTC_9cde2.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9cde2.dir/HAVE_RSA_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_9cde2.dir/HAVE_RSA_H.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_RSA_H.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_RSA_H.c:32:10: fatal error: rsa.h: No such file or directory
+ #include <rsa.h>
+          ^~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_9cde2.dir/HAVE_RSA_H.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_9cde2/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <rsa.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;err.h;errno.h;fcntl.h;ifaddrs.h;libgen.h;locale.h;net/if.h;netdb.h;netinet/in.h;netinet/tcp.h;poll.h;pwd.h;setjmp.h;sgtty.h;signal.h;ssl.h exist failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_fe16e/fast && gmake  -f CMakeFiles/cmTC_fe16e.dir/build.make CMakeFiles/cmTC_fe16e.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_fe16e.dir/HAVE_SSL_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_fe16e.dir/HAVE_SSL_H.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_SSL_H.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_SSL_H.c:35:10: fatal error: ssl.h: No such file or directory
+ #include <ssl.h>
+          ^~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_fe16e.dir/HAVE_SSL_H.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_fe16e/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <ssl.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;err.h;errno.h;fcntl.h;ifaddrs.h;libgen.h;locale.h;net/if.h;netdb.h;netinet/in.h;netinet/tcp.h;poll.h;pwd.h;setjmp.h;sgtty.h;signal.h;stdbool.h;stdint.h;stdio.h;stdlib.h;string.h;strings.h;stropts.h exist failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_f81ce/fast && gmake  -f CMakeFiles/cmTC_f81ce.dir/build.make CMakeFiles/cmTC_f81ce.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f81ce.dir/HAVE_STROPTS_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_f81ce.dir/HAVE_STROPTS_H.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_STROPTS_H.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_STROPTS_H.c:41:10: fatal error: stropts.h: No such file or directory
+ #include <stropts.h>
+          ^~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_f81ce.dir/HAVE_STROPTS_H.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_f81ce/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <stropts.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;err.h;errno.h;fcntl.h;ifaddrs.h;libgen.h;locale.h;net/if.h;netdb.h;netinet/in.h;netinet/tcp.h;poll.h;pwd.h;setjmp.h;sgtty.h;signal.h;stdbool.h;stdint.h;stdio.h;stdlib.h;string.h;strings.h;termio.h;termios.h;time.h;unistd.h;utime.h;x509.h exist failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_f2bf2/fast && gmake  -f CMakeFiles/cmTC_f2bf2.dir/build.make CMakeFiles/cmTC_f2bf2.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f2bf2.dir/HAVE_X509_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_f2bf2.dir/HAVE_X509_H.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_X509_H.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_X509_H.c:46:10: fatal error: x509.h: No such file or directory
+ #include <x509.h>
+          ^~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_f2bf2.dir/HAVE_X509_H.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_f2bf2/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <x509.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;err.h;errno.h;fcntl.h;ifaddrs.h;libgen.h;locale.h;net/if.h;netdb.h;netinet/in.h;netinet/tcp.h;poll.h;pwd.h;setjmp.h;sgtty.h;signal.h;stdbool.h;stdint.h;stdio.h;stdlib.h;string.h;strings.h;termio.h;termios.h;time.h;unistd.h;utime.h;process.h exist failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_d0867/fast && gmake  -f CMakeFiles/cmTC_d0867.dir/build.make CMakeFiles/cmTC_d0867.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d0867.dir/HAVE_PROCESS_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_d0867.dir/HAVE_PROCESS_H.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_PROCESS_H.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_PROCESS_H.c:46:10: fatal error: process.h: No such file or directory
+ #include <process.h>
+          ^~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_d0867.dir/HAVE_PROCESS_H.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_d0867/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <process.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;err.h;errno.h;fcntl.h;ifaddrs.h;libgen.h;locale.h;net/if.h;netdb.h;netinet/in.h;netinet/tcp.h;poll.h;pwd.h;setjmp.h;sgtty.h;signal.h;stdbool.h;stdint.h;stdio.h;stdlib.h;string.h;strings.h;termio.h;termios.h;time.h;unistd.h;utime.h;stddef.h;dlfcn.h;malloc.h;memory.h;netinet/if_ether.h;stdint.h;sockio.h exist failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_f3100/fast && gmake  -f CMakeFiles/cmTC_f3100.dir/build.make CMakeFiles/cmTC_f3100.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f3100.dir/HAVE_SOCKIO_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_f3100.dir/HAVE_SOCKIO_H.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_SOCKIO_H.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_SOCKIO_H.c:52:10: fatal error: sockio.h: No such file or directory
+ #include <sockio.h>
+          ^~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_f3100.dir/HAVE_SOCKIO_H.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_f3100/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sockio.h>
+
+
+int main(void){return 0;}
+
+Determining if the stricmp exist failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_61c9e/fast && gmake  -f CMakeFiles/cmTC_61c9e.dir/build.make CMakeFiles/cmTC_61c9e.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_61c9e.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_61c9e.dir/CheckSymbolExists.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:58:19: error: ‘stricmp’ undeclared (first use in this function); did you mean ‘strncmp’?
+   return ((int*)(&stricmp))[argc];
+                   ^~~~~~~
+                   strncmp
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:58:19: note: each undeclared identifier is reported only once for each function it appears in
+gmake[1]: *** [CMakeFiles/cmTC_61c9e.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_61c9e/fast] Error 2
+
+
+File /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sys/utsname.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef stricmp
+  return ((int*)(&stricmp))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the strcmpi exist failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_3d754/fast && gmake  -f CMakeFiles/cmTC_3d754.dir/build.make CMakeFiles/cmTC_3d754.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3d754.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_3d754.dir/CheckSymbolExists.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:58:19: error: ‘strcmpi’ undeclared (first use in this function); did you mean ‘strcmp’?
+   return ((int*)(&strcmpi))[argc];
+                   ^~~~~~~
+                   strcmp
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:58:19: note: each undeclared identifier is reported only once for each function it appears in
+gmake[1]: *** [CMakeFiles/cmTC_3d754.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_3d754/fast] Error 2
+
+
+File /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sys/utsname.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strcmpi
+  return ((int*)(&strcmpi))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the strncmpi exist failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_7a160/fast && gmake  -f CMakeFiles/cmTC_7a160.dir/build.make CMakeFiles/cmTC_7a160.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7a160.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_7a160.dir/CheckSymbolExists.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:58:19: error: ‘strncmpi’ undeclared (first use in this function); did you mean ‘strncmp’?
+   return ((int*)(&strncmpi))[argc];
+                   ^~~~~~~~
+                   strncmp
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:58:19: note: each undeclared identifier is reported only once for each function it appears in
+gmake[1]: *** [CMakeFiles/cmTC_7a160.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_7a160/fast] Error 2
+
+
+File /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sys/utsname.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strncmpi
+  return ((int*)(&strncmpi))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the inet_ntoa_r exist failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_b53f6/fast && gmake  -f CMakeFiles/cmTC_b53f6.dir/build.make CMakeFiles/cmTC_b53f6.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b53f6.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_b53f6.dir/CheckSymbolExists.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:58:19: error: ‘inet_ntoa_r’ undeclared (first use in this function); did you mean ‘inet_ntoa’?
+   return ((int*)(&inet_ntoa_r))[argc];
+                   ^~~~~~~~~~~
+                   inet_ntoa
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:58:19: note: each undeclared identifier is reported only once for each function it appears in
+gmake[1]: *** [CMakeFiles/cmTC_b53f6.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_b53f6/fast] Error 2
+
+
+File /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sys/utsname.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef inet_ntoa_r
+  return ((int*)(&inet_ntoa_r))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the closesocket exist failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_48d80/fast && gmake  -f CMakeFiles/cmTC_48d80.dir/build.make CMakeFiles/cmTC_48d80.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_48d80.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_48d80.dir/CheckSymbolExists.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:58:19: error: ‘closesocket’ undeclared (first use in this function); did you mean ‘socket’?
+   return ((int*)(&closesocket))[argc];
+                   ^~~~~~~~~~~
+                   socket
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:58:19: note: each undeclared identifier is reported only once for each function it appears in
+gmake[1]: *** [CMakeFiles/cmTC_48d80.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_48d80/fast] Error 2
+
+
+File /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sys/utsname.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef closesocket
+  return ((int*)(&closesocket))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the getpass_r exist failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_83977/fast && gmake  -f CMakeFiles/cmTC_83977.dir/build.make CMakeFiles/cmTC_83977.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_83977.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_83977.dir/CheckSymbolExists.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:58:19: error: ‘getpass_r’ undeclared (first use in this function); did you mean ‘getpass’?
+   return ((int*)(&getpass_r))[argc];
+                   ^~~~~~~~~
+                   getpass
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:58:19: note: each undeclared identifier is reported only once for each function it appears in
+gmake[1]: *** [CMakeFiles/cmTC_83977.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_83977/fast] Error 2
+
+
+File /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sys/utsname.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef getpass_r
+  return ((int*)(&getpass_r))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the strlcat exist failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_67b18/fast && gmake  -f CMakeFiles/cmTC_67b18.dir/build.make CMakeFiles/cmTC_67b18.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_67b18.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_67b18.dir/CheckSymbolExists.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:58:19: error: ‘strlcat’ undeclared (first use in this function); did you mean ‘strncat’?
+   return ((int*)(&strlcat))[argc];
+                   ^~~~~~~
+                   strncat
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:58:19: note: each undeclared identifier is reported only once for each function it appears in
+gmake[1]: *** [CMakeFiles/cmTC_67b18.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_67b18/fast] Error 2
+
+
+File /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sys/utsname.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strlcat
+  return ((int*)(&strlcat))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the _strtoi64 exist failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_79718/fast && gmake  -f CMakeFiles/cmTC_79718.dir/build.make CMakeFiles/cmTC_79718.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_79718.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_79718.dir/CheckSymbolExists.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:58:19: error: ‘_strtoi64’ undeclared (first use in this function); did you mean ‘strtoull’?
+   return ((int*)(&_strtoi64))[argc];
+                   ^~~~~~~~~
+                   strtoull
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:58:19: note: each undeclared identifier is reported only once for each function it appears in
+gmake[1]: *** [CMakeFiles/cmTC_79718.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_79718/fast] Error 2
+
+
+File /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sys/utsname.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef _strtoi64
+  return ((int*)(&_strtoi64))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the setmode exist failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_79a28/fast && gmake  -f CMakeFiles/cmTC_79a28.dir/build.make CMakeFiles/cmTC_79a28.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_79a28.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_79a28.dir/CheckSymbolExists.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:58:19: error: ‘setmode’ undeclared (first use in this function); did you mean ‘setgid’?
+   return ((int*)(&setmode))[argc];
+                   ^~~~~~~
+                   setgid
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:58:19: note: each undeclared identifier is reported only once for each function it appears in
+gmake[1]: *** [CMakeFiles/cmTC_79a28.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_79a28/fast] Error 2
+
+
+File /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sys/utsname.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef setmode
+  return ((int*)(&setmode))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the function mach_absolute_time exists failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_50f8a/fast && gmake  -f CMakeFiles/cmTC_50f8a.dir/build.make CMakeFiles/cmTC_50f8a.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_50f8a.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=mach_absolute_time -std=gnu11 -o CMakeFiles/cmTC_50f8a.dir/CheckFunctionExists.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Modules/CheckFunctionExists.c
+Linking C executable cmTC_50f8a
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_50f8a.dir/link.txt --verbose=1
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=mach_absolute_time CMakeFiles/cmTC_50f8a.dir/CheckFunctionExists.c.o -o cmTC_50f8a 
+CMakeFiles/cmTC_50f8a.dir/CheckFunctionExists.c.o: In function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `mach_absolute_time'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_50f8a] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_50f8a/fast] Error 2
+
+
+
+Performing Curl Test HAVE_FSETXATTR_6 failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_dbb04/fast && gmake  -f CMakeFiles/cmTC_dbb04.dir/build.make CMakeFiles/cmTC_dbb04.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_dbb04.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_FSETXATTR_6  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_dbb04.dir/CurlTests.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:544:3: error: too many arguments to function ‘fsetxattr’
+   fsetxattr(0, 0, 0, 0, 0, 0);
+   ^~~~~~~~~
+In file included from /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:541:0:
+/usr/include/sys/xattr.h:54:12: note: declared here
+ extern int fsetxattr (int __fd, const char *__name, const void *__value,
+            ^~~~~~~~~
+gmake[1]: *** [CMakeFiles/cmTC_dbb04.dir/CurlTests.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_dbb04/fast] Error 2
+
+
+Performing Curl Test HAVE_IOCTLSOCKET failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_a4dce/fast && gmake  -f CMakeFiles/cmTC_a4dce.dir/build.make CMakeFiles/cmTC_a4dce.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a4dce.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_IOCTLSOCKET  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_a4dce.dir/CurlTests.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:326:44: error: ‘FIONBIO’ undeclared (first use in this function)
+  unsigned long flags = ioctlsocket(socket, FIONBIO, &flags);
+                                            ^~~~~~~
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:326:44: note: each undeclared identifier is reported only once for each function it appears in
+gmake[1]: *** [CMakeFiles/cmTC_a4dce.dir/CurlTests.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_a4dce/fast] Error 2
+
+
+Performing Curl Test HAVE_IOCTLSOCKET_CAMEL failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_05a94/fast && gmake  -f CMakeFiles/cmTC_05a94.dir/build.make CMakeFiles/cmTC_05a94.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_05a94.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_IOCTLSOCKET_CAMEL  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_05a94.dir/CurlTests.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c
+Linking C executable cmTC_05a94
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_05a94.dir/link.txt --verbose=1
+/usr/bin/gcc   -w -DHAVE_IOCTLSOCKET_CAMEL  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H CMakeFiles/cmTC_05a94.dir/CurlTests.c.o -o cmTC_05a94 
+CMakeFiles/cmTC_05a94.dir/CurlTests.c.o: In function `main':
+CurlTests.c:(.text+0x19): undefined reference to `IoctlSocket'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_05a94] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_05a94/fast] Error 2
+
+
+Performing Curl Test HAVE_IOCTLSOCKET_CAMEL_FIONBIO failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_b0a23/fast && gmake  -f CMakeFiles/cmTC_b0a23.dir/build.make CMakeFiles/cmTC_b0a23.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b0a23.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_IOCTLSOCKET_CAMEL_FIONBIO  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_b0a23.dir/CurlTests.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:382:32: error: ‘FIONBIO’ undeclared (first use in this function)
+         if(0 != ioctlsocket(0, FIONBIO, &flags))
+                                ^~~~~~~
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:382:32: note: each undeclared identifier is reported only once for each function it appears in
+gmake[1]: *** [CMakeFiles/cmTC_b0a23.dir/CurlTests.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_b0a23/fast] Error 2
+
+
+Performing Curl Test HAVE_IOCTLSOCKET_FIONBIO failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_b8752/fast && gmake  -f CMakeFiles/cmTC_b8752.dir/build.make CMakeFiles/cmTC_b8752.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b8752.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_IOCTLSOCKET_FIONBIO  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_b8752.dir/CurlTests.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:409:32: error: ‘FIONBIO’ undeclared (first use in this function)
+         if(0 != ioctlsocket(0, FIONBIO, &flags))
+                                ^~~~~~~
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:409:32: note: each undeclared identifier is reported only once for each function it appears in
+gmake[1]: *** [CMakeFiles/cmTC_b8752.dir/CurlTests.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_b8752/fast] Error 2
+
+
+Performing Curl Test HAVE_SETSOCKOPT_SO_NONBLOCK failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_8b510/fast && gmake  -f CMakeFiles/cmTC_8b510.dir/build.make CMakeFiles/cmTC_8b510.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8b510.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_SETSOCKOPT_SO_NONBLOCK  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_8b510.dir/CurlTests.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:505:43: error: ‘SO_NONBLOCK’ undeclared (first use in this function); did you mean ‘SOCK_NONBLOCK’?
+         if(0 != setsockopt(0, SOL_SOCKET, SO_NONBLOCK, 0, 0))
+                                           ^~~~~~~~~~~
+                                           SOCK_NONBLOCK
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:505:43: note: each undeclared identifier is reported only once for each function it appears in
+gmake[1]: *** [CMakeFiles/cmTC_8b510.dir/CurlTests.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_8b510/fast] Error 2
+
+
+Performing Curl Test HAVE_O_NONBLOCK failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_358db/fast && gmake  -f CMakeFiles/cmTC_358db.dir/build.make CMakeFiles/cmTC_358db.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_358db.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_O_NONBLOCK  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_358db.dir/CurlTests.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c
+Linking C executable cmTC_358db
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_358db.dir/link.txt --verbose=1
+/usr/bin/gcc   -w -DHAVE_O_NONBLOCK  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H CMakeFiles/cmTC_358db.dir/CurlTests.c.o -o cmTC_358db 
+/usr/lib/gcc/x86_64-redhat-linux/7/../../../../lib64/crt1.o: In function `_start':
+(.text+0x20): undefined reference to `main'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_358db] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_358db/fast] Error 2
+
+
+Performing Curl Test HAVE_GETHOSTBYADDR_R_5 failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_c767b/fast && gmake  -f CMakeFiles/cmTC_c767b.dir/build.make CMakeFiles/cmTC_c767b.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c767b.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_GETHOSTBYADDR_R_5  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_c767b.dir/CurlTests.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:106:23: error: storage size of ‘hdata’ isn’t known
+   struct hostent_data hdata;
+                       ^~~~~
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:127:8: error: too few arguments to function ‘gethostbyaddr_r’
+   rc = gethostbyaddr_r(address, length, type, &h, &hdata);
+        ^~~~~~~~~~~~~~~
+In file included from /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:93:0:
+/usr/include/netdb.h:170:12: note: declared here
+ extern int gethostbyaddr_r (const void *__restrict __addr, __socklen_t __len,
+            ^~~~~~~~~~~~~~~
+gmake[1]: *** [CMakeFiles/cmTC_c767b.dir/CurlTests.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_c767b/fast] Error 2
+
+
+Performing Curl Test HAVE_GETHOSTBYADDR_R_7 failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_0ac80/fast && gmake  -f CMakeFiles/cmTC_0ac80.dir/build.make CMakeFiles/cmTC_0ac80.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0ac80.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_GETHOSTBYADDR_R_7  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_0ac80.dir/CurlTests.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:131:8: error: too few arguments to function ‘gethostbyaddr_r’
+   hp = gethostbyaddr_r(address, length, type, &h, buffer, 8192, &h_errnop);
+        ^~~~~~~~~~~~~~~
+In file included from /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:93:0:
+/usr/include/netdb.h:170:12: note: declared here
+ extern int gethostbyaddr_r (const void *__restrict __addr, __socklen_t __len,
+            ^~~~~~~~~~~~~~~
+gmake[1]: *** [CMakeFiles/cmTC_0ac80.dir/CurlTests.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_0ac80/fast] Error 2
+
+
+Performing Curl Test HAVE_GETHOSTBYADDR_R_5_REENTRANT failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_c48b4/fast && gmake  -f CMakeFiles/cmTC_c48b4.dir/build.make CMakeFiles/cmTC_c48b4.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c48b4.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_GETHOSTBYADDR_R_5_REENTRANT  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_c48b4.dir/CurlTests.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:106:23: error: storage size of ‘hdata’ isn’t known
+   struct hostent_data hdata;
+                       ^~~~~
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:127:8: error: too few arguments to function ‘gethostbyaddr_r’
+   rc = gethostbyaddr_r(address, length, type, &h, &hdata);
+        ^~~~~~~~~~~~~~~
+In file included from /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:93:0:
+/usr/include/netdb.h:170:12: note: declared here
+ extern int gethostbyaddr_r (const void *__restrict __addr, __socklen_t __len,
+            ^~~~~~~~~~~~~~~
+gmake[1]: *** [CMakeFiles/cmTC_c48b4.dir/CurlTests.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_c48b4/fast] Error 2
+
+
+Performing Curl Test HAVE_GETHOSTBYADDR_R_7_REENTRANT failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_6be22/fast && gmake  -f CMakeFiles/cmTC_6be22.dir/build.make CMakeFiles/cmTC_6be22.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_6be22.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_GETHOSTBYADDR_R_7_REENTRANT  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_6be22.dir/CurlTests.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:131:8: error: too few arguments to function ‘gethostbyaddr_r’
+   hp = gethostbyaddr_r(address, length, type, &h, buffer, 8192, &h_errnop);
+        ^~~~~~~~~~~~~~~
+In file included from /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:93:0:
+/usr/include/netdb.h:170:12: note: declared here
+ extern int gethostbyaddr_r (const void *__restrict __addr, __socklen_t __len,
+            ^~~~~~~~~~~~~~~
+gmake[1]: *** [CMakeFiles/cmTC_6be22.dir/CurlTests.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_6be22/fast] Error 2
+
+
+Performing Curl Test HAVE_GETHOSTBYNAME_R_3 failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_e9354/fast && gmake  -f CMakeFiles/cmTC_e9354.dir/build.make CMakeFiles/cmTC_e9354.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e9354.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_GETHOSTBYNAME_R_3  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_e9354.dir/CurlTests.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:106:23: error: storage size of ‘hdata’ isn’t known
+   struct hostent_data hdata;
+                       ^~~~~
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:141:8: error: too few arguments to function ‘gethostbyname_r’
+   rc = gethostbyname_r(address, &h, &hdata);
+        ^~~~~~~~~~~~~~~
+In file included from /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:93:0:
+/usr/include/netdb.h:177:12: note: declared here
+ extern int gethostbyname_r (const char *__restrict __name,
+            ^~~~~~~~~~~~~~~
+gmake[1]: *** [CMakeFiles/cmTC_e9354.dir/CurlTests.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_e9354/fast] Error 2
+
+
+Performing Curl Test HAVE_GETHOSTBYNAME_R_5 failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_7d27d/fast && gmake  -f CMakeFiles/cmTC_7d27d.dir/build.make CMakeFiles/cmTC_7d27d.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7d27d.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_GETHOSTBYNAME_R_5  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_7d27d.dir/CurlTests.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:144:8: error: too few arguments to function ‘gethostbyname_r’
+   rc = gethostbyname_r(address, &h, buffer, 8192, &h_errnop);
+        ^~~~~~~~~~~~~~~
+In file included from /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:93:0:
+/usr/include/netdb.h:177:12: note: declared here
+ extern int gethostbyname_r (const char *__restrict __name,
+            ^~~~~~~~~~~~~~~
+gmake[1]: *** [CMakeFiles/cmTC_7d27d.dir/CurlTests.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_7d27d/fast] Error 2
+
+
+Performing Curl Test HAVE_GETHOSTBYNAME_R_3_REENTRANT failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_fcbfe/fast && gmake  -f CMakeFiles/cmTC_fcbfe.dir/build.make CMakeFiles/cmTC_fcbfe.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_fcbfe.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_GETHOSTBYNAME_R_3_REENTRANT  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_fcbfe.dir/CurlTests.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:106:23: error: storage size of ‘hdata’ isn’t known
+   struct hostent_data hdata;
+                       ^~~~~
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:141:8: error: too few arguments to function ‘gethostbyname_r’
+   rc = gethostbyname_r(address, &h, &hdata);
+        ^~~~~~~~~~~~~~~
+In file included from /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:93:0:
+/usr/include/netdb.h:177:12: note: declared here
+ extern int gethostbyname_r (const char *__restrict __name,
+            ^~~~~~~~~~~~~~~
+gmake[1]: *** [CMakeFiles/cmTC_fcbfe.dir/CurlTests.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_fcbfe/fast] Error 2
+
+
+Performing Curl Test HAVE_GETHOSTBYNAME_R_5_REENTRANT failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_90403/fast && gmake  -f CMakeFiles/cmTC_90403.dir/build.make CMakeFiles/cmTC_90403.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_90403.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_GETHOSTBYNAME_R_5_REENTRANT  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_90403.dir/CurlTests.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:144:8: error: too few arguments to function ‘gethostbyname_r’
+   rc = gethostbyname_r(address, &h, buffer, 8192, &h_errnop);
+        ^~~~~~~~~~~~~~~
+In file included from /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:93:0:
+/usr/include/netdb.h:177:12: note: declared here
+ extern int gethostbyname_r (const char *__restrict __name,
+            ^~~~~~~~~~~~~~~
+gmake[1]: *** [CMakeFiles/cmTC_90403.dir/CurlTests.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_90403/fast] Error 2
+
+
+Performing Curl Test HAVE_INET_NTOA_R_DECL failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_92c18/fast && gmake  -f CMakeFiles/cmTC_92c18.dir/build.make CMakeFiles/cmTC_92c18.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_92c18.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_INET_NTOA_R_DECL  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_92c18.dir/CurlTests.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:244:21: error: ‘inet_ntoa_r’ undeclared (first use in this function); did you mean ‘inet_ntoa’?
+   func = (func_type)inet_ntoa_r;
+                     ^~~~~~~~~~~
+                     inet_ntoa
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:244:21: note: each undeclared identifier is reported only once for each function it appears in
+gmake[1]: *** [CMakeFiles/cmTC_92c18.dir/CurlTests.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_92c18/fast] Error 2
+
+
+Performing Curl Test HAVE_INET_NTOA_R_DECL_REENTRANT failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_ea2e6/fast && gmake  -f CMakeFiles/cmTC_ea2e6.dir/build.make CMakeFiles/cmTC_ea2e6.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ea2e6.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_INET_NTOA_R_DECL_REENTRANT  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_ea2e6.dir/CurlTests.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:260:22: error: ‘inet_ntoa_r’ undeclared (first use in this function); did you mean ‘inet_ntoa’?
+   func = (func_type)&inet_ntoa_r;
+                      ^~~~~~~~~~~
+                      inet_ntoa
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:260:22: note: each undeclared identifier is reported only once for each function it appears in
+gmake[1]: *** [CMakeFiles/cmTC_ea2e6.dir/CurlTests.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_ea2e6/fast] Error 2
+
+
+Performing Curl Test HAVE_GLIBC_STRERROR_R failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_8e598/fast && gmake  -f CMakeFiles/cmTC_8e598.dir/build.make CMakeFiles/cmTC_8e598.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8e598.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_GLIBC_STRERROR_R  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_8e598.dir/CurlTests.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:521:51: error: subscripted value is neither array nor pointer nor vector
+   check(strerror_r(EACCES, buffer, sizeof(buffer))[0]);
+                                                   ^
+gmake[1]: *** [CMakeFiles/cmTC_8e598.dir/CurlTests.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_8e598/fast] Error 2
+
+
+Performing Curl Test HAVE_BUILTIN_AVAILABLE failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_4afad/fast && gmake  -f CMakeFiles/cmTC_4afad.dir/build.make CMakeFiles/cmTC_4afad.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_4afad.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_BUILTIN_AVAILABLE  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_4afad.dir/CurlTests.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:568:26: error: ‘macOS’ undeclared (first use in this function)
+   if(__builtin_available(macOS 10.12, *)) {}
+                          ^~~~~
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:568:26: note: each undeclared identifier is reported only once for each function it appears in
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Utilities/cmcurl/CMake/CurlTests.c:568:32: error: expected ‘)’ before numeric constant
+   if(__builtin_available(macOS 10.12, *)) {}
+                                ^~~~~
+gmake[1]: *** [CMakeFiles/cmTC_4afad.dir/CurlTests.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_4afad/fast] Error 2
+
+
+Determining if the arc4random_buf exist failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_43b62/fast && gmake  -f CMakeFiles/cmTC_43b62.dir/build.make CMakeFiles/cmTC_43b62.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_43b62.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_43b62.dir/CheckSymbolExists.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: ‘arc4random_buf’ undeclared (first use in this function); did you mean ‘srandom_r’?
+   return ((int*)(&arc4random_buf))[argc];
+                   ^~~~~~~~~~~~~~
+                   srandom_r
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+gmake[1]: *** [CMakeFiles/cmTC_43b62.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_43b62/fast] Error 2
+
+
+File /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdlib.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef arc4random_buf
+  return ((int*)(&arc4random_buf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the arc4random exist failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_255ea/fast && gmake  -f CMakeFiles/cmTC_255ea.dir/build.make CMakeFiles/cmTC_255ea.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_255ea.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_255ea.dir/CheckSymbolExists.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: ‘arc4random’ undeclared (first use in this function); did you mean ‘srandom’?
+   return ((int*)(&arc4random))[argc];
+                   ^~~~~~~~~~
+                   srandom
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+gmake[1]: *** [CMakeFiles/cmTC_255ea.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_255ea/fast] Error 2
+
+
+File /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdlib.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef arc4random
+  return ((int*)(&arc4random))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if files sys/types.h;ctype.h;copyfile.h exist failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_28daa/fast && gmake  -f CMakeFiles/cmTC_28daa.dir/build.make CMakeFiles/cmTC_28daa.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_28daa.dir/HAVE_COPYFILE_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_28daa.dir/HAVE_COPYFILE_H.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_COPYFILE_H.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_COPYFILE_H.c:4:10: fatal error: copyfile.h: No such file or directory
+ #include <copyfile.h>
+          ^~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_28daa.dir/HAVE_COPYFILE_H.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_28daa/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <copyfile.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;direct.h exist failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_36142/fast && gmake  -f CMakeFiles/cmTC_36142.dir/build.make CMakeFiles/cmTC_36142.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_36142.dir/HAVE_DIRECT_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_36142.dir/HAVE_DIRECT_H.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_DIRECT_H.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_DIRECT_H.c:4:10: fatal error: direct.h: No such file or directory
+ #include <direct.h>
+          ^~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_36142.dir/HAVE_DIRECT_H.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_36142/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <direct.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;ext2fs/ext2_fs.h exist failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_7fb65/fast && gmake  -f CMakeFiles/cmTC_7fb65.dir/build.make CMakeFiles/cmTC_7fb65.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7fb65.dir/HAVE_EXT2FS_EXT2_FS_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_7fb65.dir/HAVE_EXT2FS_EXT2_FS_H.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_EXT2FS_EXT2_FS_H.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_EXT2FS_EXT2_FS_H.c:6:10: fatal error: ext2fs/ext2_fs.h: No such file or directory
+ #include <ext2fs/ext2_fs.h>
+          ^~~~~~~~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_7fb65.dir/HAVE_EXT2FS_EXT2_FS_H.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_7fb65/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <ext2fs/ext2_fs.h>
+
+
+int main(void){return 0;}
+
+Performing C SOURCE FILE Test HAVE_WORKING_EXT2_IOC_GETFLAGS failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_a5c35/fast && gmake  -f CMakeFiles/cmTC_a5c35.dir/build.make CMakeFiles/cmTC_a5c35.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a5c35.dir/src.c.o
+/usr/bin/gcc   -w -DHAVE_WORKING_EXT2_IOC_GETFLAGS -std=gnu11 -o CMakeFiles/cmTC_a5c35.dir/src.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c:2:10: fatal error: ext2fs/ext2_fs.h: No such file or directory
+ #include <ext2fs/ext2_fs.h>
+          ^~~~~~~~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_a5c35.dir/src.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_a5c35/fast] Error 2
+
+
+Source file was:
+#include <sys/ioctl.h>
+#include <ext2fs/ext2_fs.h>
+int main(void) { return EXT2_IOC_GETFLAGS; }
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;membership.h exist failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_7a6ce/fast && gmake  -f CMakeFiles/cmTC_7a6ce.dir/build.make CMakeFiles/cmTC_7a6ce.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7a6ce.dir/HAVE_MEMBERSHIP_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_7a6ce.dir/HAVE_MEMBERSHIP_H.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_MEMBERSHIP_H.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_MEMBERSHIP_H.c:15:10: fatal error: membership.h: No such file or directory
+ #include <membership.h>
+          ^~~~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_7a6ce.dir/HAVE_MEMBERSHIP_H.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_7a6ce/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <membership.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;readpassphrase.h exist failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_df94b/fast && gmake  -f CMakeFiles/cmTC_df94b.dir/build.make CMakeFiles/cmTC_df94b.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_df94b.dir/HAVE_READPASSPHRASE_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_df94b.dir/HAVE_READPASSPHRASE_H.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_READPASSPHRASE_H.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_READPASSPHRASE_H.c:20:10: fatal error: readpassphrase.h: No such file or directory
+ #include <readpassphrase.h>
+          ^~~~~~~~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_df94b.dir/HAVE_READPASSPHRASE_H.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_df94b/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <readpassphrase.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;regex.h;signal.h;spawn.h;stdarg.h;stdlib.h;string.h;strings.h;sys/acl.h exist failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_c90b5/fast && gmake  -f CMakeFiles/cmTC_c90b5.dir/build.make CMakeFiles/cmTC_c90b5.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c90b5.dir/HAVE_SYS_ACL_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_c90b5.dir/HAVE_SYS_ACL_H.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_SYS_ACL_H.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_SYS_ACL_H.c:27:10: fatal error: sys/acl.h: No such file or directory
+ #include <sys/acl.h>
+          ^~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_c90b5.dir/HAVE_SYS_ACL_H.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_c90b5/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <regex.h>
+#include <signal.h>
+#include <spawn.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/acl.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;regex.h;signal.h;spawn.h;stdarg.h;stdlib.h;string.h;strings.h;sys/cdefs.h;sys/extattr.h exist failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_e2fc6/fast && gmake  -f CMakeFiles/cmTC_e2fc6.dir/build.make CMakeFiles/cmTC_e2fc6.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e2fc6.dir/HAVE_SYS_EXTATTR_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_e2fc6.dir/HAVE_SYS_EXTATTR_H.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_SYS_EXTATTR_H.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_SYS_EXTATTR_H.c:28:10: fatal error: sys/extattr.h: No such file or directory
+ #include <sys/extattr.h>
+          ^~~~~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_e2fc6.dir/HAVE_SYS_EXTATTR_H.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_e2fc6/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <regex.h>
+#include <signal.h>
+#include <spawn.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/cdefs.h>
+#include <sys/extattr.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;regex.h;signal.h;spawn.h;stdarg.h;stdlib.h;string.h;strings.h;sys/cdefs.h;sys/ioctl.h;sys/mkdev.h exist failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_64f3f/fast && gmake  -f CMakeFiles/cmTC_64f3f.dir/build.make CMakeFiles/cmTC_64f3f.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_64f3f.dir/HAVE_SYS_MKDEV_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_64f3f.dir/HAVE_SYS_MKDEV_H.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_SYS_MKDEV_H.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_SYS_MKDEV_H.c:29:10: fatal error: sys/mkdev.h: No such file or directory
+ #include <sys/mkdev.h>
+          ^~~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_64f3f.dir/HAVE_SYS_MKDEV_H.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_64f3f/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <regex.h>
+#include <signal.h>
+#include <spawn.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/cdefs.h>
+#include <sys/ioctl.h>
+#include <sys/mkdev.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;regex.h;signal.h;spawn.h;stdarg.h;stdlib.h;string.h;strings.h;sys/cdefs.h;sys/ioctl.h;sys/mount.h exist failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_1c3e3/fast && gmake  -f CMakeFiles/cmTC_1c3e3.dir/build.make CMakeFiles/cmTC_1c3e3.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1c3e3.dir/HAVE_SYS_MOUNT_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_1c3e3.dir/HAVE_SYS_MOUNT_H.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_SYS_MOUNT_H.c
+In file included from /usr/include/linux/fs.h:19:0,
+                 from /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_SYS_MOUNT_H.c:12:
+/usr/include/sys/mount.h:35:3: error: expected identifier before numeric constant
+   MS_RDONLY = 1,  /* Mount read-only.  */
+   ^
+gmake[1]: *** [CMakeFiles/cmTC_1c3e3.dir/HAVE_SYS_MOUNT_H.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_1c3e3/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <regex.h>
+#include <signal.h>
+#include <spawn.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/cdefs.h>
+#include <sys/ioctl.h>
+#include <sys/mount.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;regex.h;signal.h;spawn.h;stdarg.h;stdlib.h;string.h;strings.h;sys/cdefs.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/richacl.h exist failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_f640a/fast && gmake  -f CMakeFiles/cmTC_f640a.dir/build.make CMakeFiles/cmTC_f640a.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f640a.dir/HAVE_SYS_RICHACL_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_f640a.dir/HAVE_SYS_RICHACL_H.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_SYS_RICHACL_H.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_SYS_RICHACL_H.c:31:10: fatal error: sys/richacl.h: No such file or directory
+ #include <sys/richacl.h>
+          ^~~~~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_f640a.dir/HAVE_SYS_RICHACL_H.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_f640a/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <regex.h>
+#include <signal.h>
+#include <spawn.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/cdefs.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/richacl.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;regex.h;signal.h;spawn.h;stdarg.h;stdlib.h;string.h;strings.h;sys/cdefs.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/select.h;sys/stat.h;sys/statfs.h;sys/statvfs.h;sys/sysmacros.h;sys/time.h;sys/utsname.h;sys/vfs.h;sys/wait.h;sys/xattr.h;time.h;unistd.h;utime.h;wchar.h;wctype.h;windows.h exist failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_6145b/fast && gmake  -f CMakeFiles/cmTC_6145b.dir/build.make CMakeFiles/cmTC_6145b.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_6145b.dir/HAVE_WINDOWS_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_6145b.dir/HAVE_WINDOWS_H.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_WINDOWS_H.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_WINDOWS_H.c:46:10: fatal error: windows.h: No such file or directory
+ #include <windows.h>
+          ^~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_6145b.dir/HAVE_WINDOWS_H.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_6145b/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <regex.h>
+#include <signal.h>
+#include <spawn.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/cdefs.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/select.h>
+#include <sys/stat.h>
+#include <sys/statfs.h>
+#include <sys/statvfs.h>
+#include <sys/sysmacros.h>
+#include <sys/time.h>
+#include <sys/utsname.h>
+#include <sys/vfs.h>
+#include <sys/wait.h>
+#include <sys/xattr.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <wchar.h>
+#include <wctype.h>
+#include <windows.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;regex.h;signal.h;spawn.h;stdarg.h;stdlib.h;string.h;strings.h;sys/cdefs.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/select.h;sys/stat.h;sys/statfs.h;sys/statvfs.h;sys/sysmacros.h;sys/time.h;sys/utsname.h;sys/vfs.h;sys/wait.h;sys/xattr.h;time.h;unistd.h;utime.h;wchar.h;wctype.h;wincrypt.h exist failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_d1b59/fast && gmake  -f CMakeFiles/cmTC_d1b59.dir/build.make CMakeFiles/cmTC_d1b59.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d1b59.dir/HAVE_WINCRYPT_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_d1b59.dir/HAVE_WINCRYPT_H.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_WINCRYPT_H.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_WINCRYPT_H.c:46:10: fatal error: wincrypt.h: No such file or directory
+ #include <wincrypt.h>
+          ^~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_d1b59.dir/HAVE_WINCRYPT_H.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_d1b59/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <regex.h>
+#include <signal.h>
+#include <spawn.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/cdefs.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/select.h>
+#include <sys/stat.h>
+#include <sys/statfs.h>
+#include <sys/statvfs.h>
+#include <sys/sysmacros.h>
+#include <sys/time.h>
+#include <sys/utsname.h>
+#include <sys/vfs.h>
+#include <sys/wait.h>
+#include <sys/xattr.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <wchar.h>
+#include <wctype.h>
+#include <wincrypt.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;regex.h;signal.h;spawn.h;stdarg.h;stdlib.h;string.h;strings.h;sys/cdefs.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/select.h;sys/stat.h;sys/statfs.h;sys/statvfs.h;sys/sysmacros.h;sys/time.h;sys/utsname.h;sys/vfs.h;sys/wait.h;sys/xattr.h;time.h;unistd.h;utime.h;wchar.h;wctype.h;winioctl.h exist failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_151ca/fast && gmake  -f CMakeFiles/cmTC_151ca.dir/build.make CMakeFiles/cmTC_151ca.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_151ca.dir/HAVE_WINIOCTL_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_151ca.dir/HAVE_WINIOCTL_H.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_WINIOCTL_H.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CheckIncludeFiles/HAVE_WINIOCTL_H.c:46:10: fatal error: winioctl.h: No such file or directory
+ #include <winioctl.h>
+          ^~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_151ca.dir/HAVE_WINIOCTL_H.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_151ca/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <regex.h>
+#include <signal.h>
+#include <spawn.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/cdefs.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/select.h>
+#include <sys/stat.h>
+#include <sys/statfs.h>
+#include <sys/statvfs.h>
+#include <sys/sysmacros.h>
+#include <sys/time.h>
+#include <sys/utsname.h>
+#include <sys/vfs.h>
+#include <sys/wait.h>
+#include <sys/xattr.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <wchar.h>
+#include <wctype.h>
+#include <winioctl.h>
+
+
+int main(void){return 0;}
+
+Determining if the function MD5Init exists in the md failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_8561b/fast && gmake  -f CMakeFiles/cmTC_8561b.dir/build.make CMakeFiles/cmTC_8561b.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8561b.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=MD5Init -std=gnu11 -o CMakeFiles/cmTC_8561b.dir/CheckFunctionExists.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Modules/CheckFunctionExists.c
+Linking C executable cmTC_8561b
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_8561b.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=MD5Init CMakeFiles/cmTC_8561b.dir/CheckFunctionExists.c.o -o cmTC_8561b  -lmd 
+/usr/bin/ld: cannot find -lmd
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_8561b] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_8561b/fast] Error 2
+
+
+
+Determining if the function getvfsbyname exists failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_9c262/fast && gmake  -f CMakeFiles/cmTC_9c262.dir/build.make CMakeFiles/cmTC_9c262.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9c262.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=getvfsbyname  -fno-builtin -std=gnu11 -o CMakeFiles/cmTC_9c262.dir/CheckFunctionExists.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Modules/CheckFunctionExists.c
+Linking C executable cmTC_9c262
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_9c262.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=getvfsbyname  -fno-builtin CMakeFiles/cmTC_9c262.dir/CheckFunctionExists.c.o -o cmTC_9c262 
+CMakeFiles/cmTC_9c262.dir/CheckFunctionExists.c.o: In function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `getvfsbyname'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_9c262] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_9c262/fast] Error 2
+
+
+
+Determining if the function lchflags exists failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_84436/fast && gmake  -f CMakeFiles/cmTC_84436.dir/build.make CMakeFiles/cmTC_84436.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_84436.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=lchflags  -fno-builtin -std=gnu11 -o CMakeFiles/cmTC_84436.dir/CheckFunctionExists.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Modules/CheckFunctionExists.c
+Linking C executable cmTC_84436
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_84436.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=lchflags  -fno-builtin CMakeFiles/cmTC_84436.dir/CheckFunctionExists.c.o -o cmTC_84436 
+CMakeFiles/cmTC_84436.dir/CheckFunctionExists.c.o: In function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `lchflags'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_84436] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_84436/fast] Error 2
+
+
+
+Determining if the function readpassphrase exists failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_e55fa/fast && gmake  -f CMakeFiles/cmTC_e55fa.dir/build.make CMakeFiles/cmTC_e55fa.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e55fa.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=readpassphrase  -fno-builtin -std=gnu11 -o CMakeFiles/cmTC_e55fa.dir/CheckFunctionExists.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Modules/CheckFunctionExists.c
+Linking C executable cmTC_e55fa
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_e55fa.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=readpassphrase  -fno-builtin CMakeFiles/cmTC_e55fa.dir/CheckFunctionExists.c.o -o cmTC_e55fa 
+CMakeFiles/cmTC_e55fa.dir/CheckFunctionExists.c.o: In function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `readpassphrase'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_e55fa] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_e55fa/fast] Error 2
+
+
+
+Determining if the function strncpy_s exists failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_474d5/fast && gmake  -f CMakeFiles/cmTC_474d5.dir/build.make CMakeFiles/cmTC_474d5.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_474d5.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=strncpy_s  -fno-builtin -std=gnu11 -o CMakeFiles/cmTC_474d5.dir/CheckFunctionExists.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Modules/CheckFunctionExists.c
+Linking C executable cmTC_474d5
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_474d5.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=strncpy_s  -fno-builtin CMakeFiles/cmTC_474d5.dir/CheckFunctionExists.c.o -o cmTC_474d5 
+CMakeFiles/cmTC_474d5.dir/CheckFunctionExists.c.o: In function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `strncpy_s'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_474d5] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_474d5/fast] Error 2
+
+
+
+Determining if the function _ctime64_s exists failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_178d7/fast && gmake  -f CMakeFiles/cmTC_178d7.dir/build.make CMakeFiles/cmTC_178d7.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_178d7.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=_ctime64_s  -fno-builtin -std=gnu11 -o CMakeFiles/cmTC_178d7.dir/CheckFunctionExists.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Modules/CheckFunctionExists.c
+Linking C executable cmTC_178d7
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_178d7.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=_ctime64_s  -fno-builtin CMakeFiles/cmTC_178d7.dir/CheckFunctionExists.c.o -o cmTC_178d7 
+CMakeFiles/cmTC_178d7.dir/CheckFunctionExists.c.o: In function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `_ctime64_s'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_178d7] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_178d7/fast] Error 2
+
+
+
+Determining if the function _fseeki64 exists failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_bc91c/fast && gmake  -f CMakeFiles/cmTC_bc91c.dir/build.make CMakeFiles/cmTC_bc91c.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_bc91c.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=_fseeki64  -fno-builtin -std=gnu11 -o CMakeFiles/cmTC_bc91c.dir/CheckFunctionExists.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Modules/CheckFunctionExists.c
+Linking C executable cmTC_bc91c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_bc91c.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=_fseeki64  -fno-builtin CMakeFiles/cmTC_bc91c.dir/CheckFunctionExists.c.o -o cmTC_bc91c 
+CMakeFiles/cmTC_bc91c.dir/CheckFunctionExists.c.o: In function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `_fseeki64'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_bc91c] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_bc91c/fast] Error 2
+
+
+
+Determining if the function _get_timezone exists failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_3ca9b/fast && gmake  -f CMakeFiles/cmTC_3ca9b.dir/build.make CMakeFiles/cmTC_3ca9b.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3ca9b.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=_get_timezone  -fno-builtin -std=gnu11 -o CMakeFiles/cmTC_3ca9b.dir/CheckFunctionExists.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Modules/CheckFunctionExists.c
+Linking C executable cmTC_3ca9b
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_3ca9b.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=_get_timezone  -fno-builtin CMakeFiles/cmTC_3ca9b.dir/CheckFunctionExists.c.o -o cmTC_3ca9b 
+CMakeFiles/cmTC_3ca9b.dir/CheckFunctionExists.c.o: In function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `_get_timezone'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_3ca9b] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_3ca9b/fast] Error 2
+
+
+
+Determining if the function _gmtime64_s exists failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_72811/fast && gmake  -f CMakeFiles/cmTC_72811.dir/build.make CMakeFiles/cmTC_72811.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_72811.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=_gmtime64_s  -fno-builtin -std=gnu11 -o CMakeFiles/cmTC_72811.dir/CheckFunctionExists.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Modules/CheckFunctionExists.c
+Linking C executable cmTC_72811
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_72811.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=_gmtime64_s  -fno-builtin CMakeFiles/cmTC_72811.dir/CheckFunctionExists.c.o -o cmTC_72811 
+CMakeFiles/cmTC_72811.dir/CheckFunctionExists.c.o: In function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `_gmtime64_s'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_72811] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_72811/fast] Error 2
+
+
+
+Determining if the function _localtime64_s exists failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_c3f7c/fast && gmake  -f CMakeFiles/cmTC_c3f7c.dir/build.make CMakeFiles/cmTC_c3f7c.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c3f7c.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=_localtime64_s  -fno-builtin -std=gnu11 -o CMakeFiles/cmTC_c3f7c.dir/CheckFunctionExists.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Modules/CheckFunctionExists.c
+Linking C executable cmTC_c3f7c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_c3f7c.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=_localtime64_s  -fno-builtin CMakeFiles/cmTC_c3f7c.dir/CheckFunctionExists.c.o -o cmTC_c3f7c 
+CMakeFiles/cmTC_c3f7c.dir/CheckFunctionExists.c.o: In function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `_localtime64_s'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_c3f7c] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_c3f7c/fast] Error 2
+
+
+
+Determining if the function _mkgmtime64 exists failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_d0908/fast && gmake  -f CMakeFiles/cmTC_d0908.dir/build.make CMakeFiles/cmTC_d0908.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d0908.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=_mkgmtime64  -fno-builtin -std=gnu11 -o CMakeFiles/cmTC_d0908.dir/CheckFunctionExists.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Modules/CheckFunctionExists.c
+Linking C executable cmTC_d0908
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_d0908.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=_mkgmtime64  -fno-builtin CMakeFiles/cmTC_d0908.dir/CheckFunctionExists.c.o -o cmTC_d0908 
+CMakeFiles/cmTC_d0908.dir/CheckFunctionExists.c.o: In function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `_mkgmtime64'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_d0908] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_d0908/fast] Error 2
+
+
+
+Determining if the function cygwin_conv_path exists failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_6394a/fast && gmake  -f CMakeFiles/cmTC_6394a.dir/build.make CMakeFiles/cmTC_6394a.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_6394a.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=cygwin_conv_path  -fno-builtin -std=gnu11 -o CMakeFiles/cmTC_6394a.dir/CheckFunctionExists.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Modules/CheckFunctionExists.c
+Linking C executable cmTC_6394a
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_6394a.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=cygwin_conv_path  -fno-builtin CMakeFiles/cmTC_6394a.dir/CheckFunctionExists.c.o -o cmTC_6394a 
+CMakeFiles/cmTC_6394a.dir/CheckFunctionExists.c.o: In function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `cygwin_conv_path'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_6394a] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_6394a/fast] Error 2
+
+
+
+Performing C SOURCE FILE Test HAVE_STRUCT_VFSCONF failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_fbb5e/fast && gmake  -f CMakeFiles/cmTC_fbb5e.dir/build.make CMakeFiles/cmTC_fbb5e.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_fbb5e.dir/src.c.o
+/usr/bin/gcc   -w -DHAVE_STRUCT_VFSCONF -std=gnu11 -o CMakeFiles/cmTC_fbb5e.dir/src.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c:3:33: error: storage size of ‘v’ isn’t known
+ int main(void) { struct vfsconf v; return sizeof(v);}
+                                 ^
+gmake[1]: *** [CMakeFiles/cmTC_fbb5e.dir/src.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_fbb5e/fast] Error 2
+
+
+Source file was:
+#include <sys/types.h>
+#include <sys/mount.h>
+int main(void) { struct vfsconf v; return sizeof(v);}
+Performing C SOURCE FILE Test HAVE_STRUCT_XVFSCONF failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_9ec65/fast && gmake  -f CMakeFiles/cmTC_9ec65.dir/build.make CMakeFiles/cmTC_9ec65.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9ec65.dir/src.c.o
+/usr/bin/gcc   -w -DHAVE_STRUCT_XVFSCONF -std=gnu11 -o CMakeFiles/cmTC_9ec65.dir/src.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c:3:34: error: storage size of ‘v’ isn’t known
+ int main(void) { struct xvfsconf v; return sizeof(v);}
+                                  ^
+gmake[1]: *** [CMakeFiles/cmTC_9ec65.dir/src.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_9ec65/fast] Error 2
+
+
+Source file was:
+#include <sys/types.h>
+#include <sys/mount.h>
+int main(void) { struct xvfsconf v; return sizeof(v);}
+Performing C SOURCE FILE Test MAJOR_IN_MKDEV failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_918c9/fast && gmake  -f CMakeFiles/cmTC_918c9.dir/build.make CMakeFiles/cmTC_918c9.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_918c9.dir/src.c.o
+/usr/bin/gcc   -w -DMAJOR_IN_MKDEV -std=gnu11 -o CMakeFiles/cmTC_918c9.dir/src.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c:1:10: fatal error: sys/mkdev.h: No such file or directory
+ #include <sys/mkdev.h>
+          ^~~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_918c9.dir/src.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_918c9/fast] Error 2
+
+
+Source file was:
+#include <sys/mkdev.h>
+int main() { return major(256); }
+Performing C SOURCE FILE Test HAVE_LZMA_STREAM_ENCODER_MT failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_ab470/fast && gmake  -f CMakeFiles/cmTC_ab470.dir/build.make CMakeFiles/cmTC_ab470.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ab470.dir/src.c.o
+/usr/bin/gcc   -w -DHAVE_LZMA_STREAM_ENCODER_MT -std=gnu11 -o CMakeFiles/cmTC_ab470.dir/src.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_ab470
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_ab470.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DHAVE_LZMA_STREAM_ENCODER_MT CMakeFiles/cmTC_ab470.dir/src.c.o -o cmTC_ab470 
+CMakeFiles/cmTC_ab470.dir/src.c.o: In function `main':
+src.c:(.text+0xf): undefined reference to `lzma_stream_encoder_mt'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_ab470] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_ab470/fast] Error 2
+
+
+Source file was:
+#include <lzma.h>
+#if LZMA_VERSION < 50020000
+#error unsupported
+#endif
+int main(void){lzma_stream_encoder_mt(0, 0); return 0;}
+Determining if the EFTYPE exist failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_23fdc/fast && gmake  -f CMakeFiles/cmTC_23fdc.dir/build.make CMakeFiles/cmTC_23fdc.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_23fdc.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_23fdc.dir/CheckSymbolExists.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: ‘EFTYPE’ undeclared (first use in this function); did you mean ‘ESPIPE’?
+   return ((int*)(&EFTYPE))[argc];
+                   ^~~~~~
+                   ESPIPE
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+gmake[1]: *** [CMakeFiles/cmTC_23fdc.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_23fdc/fast] Error 2
+
+
+File /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <errno.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef EFTYPE
+  return ((int*)(&EFTYPE))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the D_MD_ORDER exist failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_8fe3e/fast && gmake  -f CMakeFiles/cmTC_8fe3e.dir/build.make CMakeFiles/cmTC_8fe3e.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8fe3e.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_8fe3e.dir/CheckSymbolExists.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: ‘D_MD_ORDER’ undeclared (first use in this function)
+   return ((int*)(&D_MD_ORDER))[argc];
+                   ^~~~~~~~~~
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+gmake[1]: *** [CMakeFiles/cmTC_8fe3e.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_8fe3e/fast] Error 2
+
+
+File /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <langinfo.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef D_MD_ORDER
+  return ((int*)(&D_MD_ORDER))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Performing C SOURCE FILE Test HAVE_STRUCT_TM___TM_GMTOFF failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_f1e73/fast && gmake  -f CMakeFiles/cmTC_f1e73.dir/build.make CMakeFiles/cmTC_f1e73.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f1e73.dir/src.c.o
+/usr/bin/gcc   -w -DHAVE_STRUCT_TM___TM_GMTOFF -std=gnu11 -o CMakeFiles/cmTC_f1e73.dir/src.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c:6:34: error: ‘struct tm’ has no member named ‘__tm_gmtoff’; did you mean ‘tm_gmtoff’?
+   (void)sizeof(((struct tm *)0)->__tm_gmtoff);
+                                  ^~~~~~~~~~~
+                                  tm_gmtoff
+gmake[1]: *** [CMakeFiles/cmTC_f1e73.dir/src.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_f1e73/fast] Error 2
+
+
+Source file was:
+
+#include <time.h>
+
+int main()
+{
+  (void)sizeof(((struct tm *)0)->__tm_gmtoff);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STATFS_F_NAMEMAX failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_b4baa/fast && gmake  -f CMakeFiles/cmTC_b4baa.dir/build.make CMakeFiles/cmTC_b4baa.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b4baa.dir/src.c.o
+/usr/bin/gcc   -w -DHAVE_STRUCT_STATFS_F_NAMEMAX -std=gnu11 -o CMakeFiles/cmTC_b4baa.dir/src.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c:7:36: error: dereferencing pointer to incomplete type ‘struct statfs’
+   (void)sizeof(((struct statfs *)0)->f_namemax);
+                                    ^~
+gmake[1]: *** [CMakeFiles/cmTC_b4baa.dir/src.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_b4baa/fast] Error 2
+
+
+Source file was:
+
+#include <sys/param.h>
+#include <sys/mount.h>
+
+int main()
+{
+  (void)sizeof(((struct statfs *)0)->f_namemax);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STAT_ST_BIRTHTIME failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_15805/fast && gmake  -f CMakeFiles/cmTC_15805.dir/build.make CMakeFiles/cmTC_15805.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_15805.dir/src.c.o
+/usr/bin/gcc   -w -DHAVE_STRUCT_STAT_ST_BIRTHTIME -std=gnu11 -o CMakeFiles/cmTC_15805.dir/src.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c:7:36: error: ‘struct stat’ has no member named ‘st_birthtime’; did you mean ‘st_blksize’?
+   (void)sizeof(((struct stat *)0)->st_birthtime);
+                                    ^~~~~~~~~~~~
+                                    st_blksize
+gmake[1]: *** [CMakeFiles/cmTC_15805.dir/src.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_15805/fast] Error 2
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_birthtime);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STAT_ST_BIRTHTIMESPEC_TV_NSEC failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_d036c/fast && gmake  -f CMakeFiles/cmTC_d036c.dir/build.make CMakeFiles/cmTC_d036c.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d036c.dir/src.c.o
+/usr/bin/gcc   -w -DHAVE_STRUCT_STAT_ST_BIRTHTIMESPEC_TV_NSEC -std=gnu11 -o CMakeFiles/cmTC_d036c.dir/src.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c:7:34: error: ‘struct stat’ has no member named ‘st_birthtimespec’
+   (void)sizeof(((struct stat *)0)->st_birthtimespec.tv_nsec);
+                                  ^~
+gmake[1]: *** [CMakeFiles/cmTC_d036c.dir/src.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_d036c/fast] Error 2
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_birthtimespec.tv_nsec);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STAT_ST_MTIMESPEC_TV_NSEC failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_086a2/fast && gmake  -f CMakeFiles/cmTC_086a2.dir/build.make CMakeFiles/cmTC_086a2.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_086a2.dir/src.c.o
+/usr/bin/gcc   -w -DHAVE_STRUCT_STAT_ST_MTIMESPEC_TV_NSEC -std=gnu11 -o CMakeFiles/cmTC_086a2.dir/src.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c:7:36: error: ‘struct stat’ has no member named ‘st_mtimespec’; did you mean ‘st_mtim’?
+   (void)sizeof(((struct stat *)0)->st_mtimespec.tv_nsec);
+                                    ^~~~~~~~~~~~
+                                    st_mtim
+gmake[1]: *** [CMakeFiles/cmTC_086a2.dir/src.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_086a2/fast] Error 2
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_mtimespec.tv_nsec);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STAT_ST_MTIME_N failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_37f64/fast && gmake  -f CMakeFiles/cmTC_37f64.dir/build.make CMakeFiles/cmTC_37f64.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_37f64.dir/src.c.o
+/usr/bin/gcc   -w -DHAVE_STRUCT_STAT_ST_MTIME_N -std=gnu11 -o CMakeFiles/cmTC_37f64.dir/src.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c:7:36: error: ‘struct stat’ has no member named ‘st_mtime_n’; did you mean ‘st_mtim’?
+   (void)sizeof(((struct stat *)0)->st_mtime_n);
+                                    ^~~~~~~~~~
+                                    st_mtim
+gmake[1]: *** [CMakeFiles/cmTC_37f64.dir/src.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_37f64/fast] Error 2
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_mtime_n);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STAT_ST_UMTIME failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_a5d56/fast && gmake  -f CMakeFiles/cmTC_a5d56.dir/build.make CMakeFiles/cmTC_a5d56.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a5d56.dir/src.c.o
+/usr/bin/gcc   -w -DHAVE_STRUCT_STAT_ST_UMTIME -std=gnu11 -o CMakeFiles/cmTC_a5d56.dir/src.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c:7:36: error: ‘struct stat’ has no member named ‘st_umtime’; did you mean ‘st_mtim’?
+   (void)sizeof(((struct stat *)0)->st_umtime);
+                                    ^~~~~~~~~
+                                    st_mtim
+gmake[1]: *** [CMakeFiles/cmTC_a5d56.dir/src.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_a5d56/fast] Error 2
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_umtime);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STAT_ST_MTIME_USEC failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_72b2c/fast && gmake  -f CMakeFiles/cmTC_72b2c.dir/build.make CMakeFiles/cmTC_72b2c.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_72b2c.dir/src.c.o
+/usr/bin/gcc   -w -DHAVE_STRUCT_STAT_ST_MTIME_USEC -std=gnu11 -o CMakeFiles/cmTC_72b2c.dir/src.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c:7:36: error: ‘struct stat’ has no member named ‘st_mtime_usec’; did you mean ‘st_mtim’?
+   (void)sizeof(((struct stat *)0)->st_mtime_usec);
+                                    ^~~~~~~~~~~~~
+                                    st_mtim
+gmake[1]: *** [CMakeFiles/cmTC_72b2c.dir/src.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_72b2c/fast] Error 2
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_mtime_usec);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STAT_ST_FLAGS failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_c4cf9/fast && gmake  -f CMakeFiles/cmTC_c4cf9.dir/build.make CMakeFiles/cmTC_c4cf9.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c4cf9.dir/src.c.o
+/usr/bin/gcc   -w -DHAVE_STRUCT_STAT_ST_FLAGS -std=gnu11 -o CMakeFiles/cmTC_c4cf9.dir/src.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c:7:36: error: ‘struct stat’ has no member named ‘st_flags’; did you mean ‘st_nlink’?
+   (void)sizeof(((struct stat *)0)->st_flags);
+                                    ^~~~~~~~
+                                    st_nlink
+gmake[1]: *** [CMakeFiles/cmTC_c4cf9.dir/src.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_c4cf9/fast] Error 2
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_flags);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STATVFS_F_IOSIZE failed with the following output:
+Change Dir: /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_e1e95/fast && gmake  -f CMakeFiles/cmTC_e1e95.dir/build.make CMakeFiles/cmTC_e1e95.dir/build
+gmake[1]: Entering directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e1e95.dir/src.c.o
+/usr/bin/gcc   -w -DHAVE_STRUCT_STATVFS_F_IOSIZE -std=gnu11 -o CMakeFiles/cmTC_e1e95.dir/src.c.o -c /home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp/src.c:7:39: error: ‘struct statvfs’ has no member named ‘f_iosize’; did you mean ‘f_bsize’?
+   (void)sizeof(((struct statvfs *)0)->f_iosize);
+                                       ^~~~~~~~
+                                       f_bsize
+gmake[1]: *** [CMakeFiles/cmTC_e1e95.dir/src.c.o] Error 1
+gmake[1]: Leaving directory `/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_e1e95/fast] Error 2
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/statvfs.h>
+
+int main()
+{
+  (void)sizeof(((struct statvfs *)0)->f_iosize);
+  return 0;
+}
+
+Looking for a Fortran compiler failed with the following output:
+-- The Fortran compiler identification is unknown
+CMake Error at CMakeLists.txt:2 (project):
+  No CMAKE_Fortran_COMPILER could be found.
+
+  Tell CMake where to find the compiler by setting either the environment
+  variable "FC" or the CMake cache entry CMAKE_Fortran_COMPILER to the full
+  path to the compiler, or to the compiler name if it is in the PATH.
+
+
+-- Configuring incomplete, errors occurred!
+See also "/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Tests/CMakeFiles/CheckFortran/CMakeFiles/CMakeOutput.log".
+See also "/home/justin/junk/spriNGboard_pt2/week_15/installer_source_files/cmake-3.18.0/Tests/CMakeFiles/CheckFortran/CMakeFiles/CMakeError.log".
+
